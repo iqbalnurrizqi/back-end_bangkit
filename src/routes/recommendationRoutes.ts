@@ -5,6 +5,6 @@ import { recommendationController } from "../controller/recommendation.controlle
 
 const router = Router();
 
-router.post("/", authenticateToken, recommendationController);
+router.post("/",authenticateToken, recommendationController);
 
 export default router;

@@ -21,19 +21,22 @@ export const recommendationController = async (req: Request, res: Response) => {
       .where("skin_type", "==", skin_type)
       .get();
 
-    const recommendedProducts: string[] = [];
-    productsSnapshot.forEach((doc) => {
+    const getProducts = await db.collection("products").get();
+
+    const recommendedProducts: any = [];
+    getProducts.forEach((doc) => {
       const product = doc.data();
-      recommendedProducts.push(product.name);
+      recommendedProducts.push(product);
     });
 
     // Ambil klinik yang direkomendasikan dari Firestore (contoh koleksi: "hospital")
     const clinicsSnapshot = await db.collection("hospital").get();
-    const recommendedClinics: string[] = [];
+    const recommendedClinics: any = [];
     clinicsSnapshot.forEach((doc) => {
       const clinic = doc.data();
-      recommendedClinics.push(clinic.name);
+      recommendedClinics.push(clinic);
     });
+
 
     // Kirim respons dengan data rekomendasi
     res.status(200).send({
