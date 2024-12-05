@@ -8,7 +8,7 @@ export const recommendationController = async (req: Request, res: Response) => {
 
     // Validasi input
     if (!skin_type || !Array.isArray(skin_issues)) {
-      return res.status(400).send({
+      res.status(400).send({
         status: false,
         statusCode: 400,
         message: "skin_type (string) and skin_issues (array) are required",
