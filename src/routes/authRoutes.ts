@@ -5,13 +5,13 @@ import { authenticateToken } from "../middleware/authMiddleware";
 
 const router = Router();
 
-// Register User
+// Register User (DONE)
 router.post("/register", registerAuth);
 
-// Login User
+// Login User (DONE)
 router.post("/login", loginAuth);
 
-// Forgot Password Endpoint
+// Forgot Password Endpoint (DONE)
 router.post("/forget-password", forgotPassword);
 
 

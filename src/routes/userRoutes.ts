@@ -1,17 +1,17 @@
 import { Router } from "express";
 import { authenticateToken } from "../middleware/authMiddleware";
 import { addNewUser, deleteUser, getAllUsers, updateUser } from "../controller/user.controller";
-import { getProfileData, updateProfileData } from "../controller/profile.controller";
+import { getProfileData, updateProfile, updateProfileData } from "../controller/profile.controller";
 import multer from "multer";
 
 
 
 const router = Router();
 
-// Get All Users
+// Get All  (DONE)
 router.get("/", authenticateToken, getAllUsers);
 
-// Add New User
+// Add New User (DONE)
 router.post("/", addNewUser);
 
 // Update User
@@ -22,10 +22,10 @@ router.delete("/:id", deleteUser);
 
 
 // Get Profile Data
-router.get("/profile", authenticateToken, getProfileData );
+router.get("/profile",authenticateToken, getProfileData );
 
 // Untuk memperbarui data profil pengguna
-router.put("/profile", authenticateToken, updateProfileData );
+router.put("/profile",authenticateToken, updateProfile);
 
 // Setup Multer for file upload
 const upload = multer({

@@ -1,5 +1,6 @@
 export interface profileType {
   name: string;
-  skinType: string;
-  skinProblems: string[];
+  skin_type: string;
+  skin_issues: string[];
+  treatment_goal: string;
 }

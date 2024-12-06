@@ -7,11 +7,11 @@ import { getProfile, updateProfile } from "../controller/profile.controller";
 const router = Router();
 
 // Get Profile Endpoint
-router.get("/profile", authenticateToken, getProfile
+router.get("/", authenticateToken, getProfile
 );
 
 // Update Profile Endpoint
-router.put("/profile", updateProfile);
+router.put("/", updateProfile);
 
 
 

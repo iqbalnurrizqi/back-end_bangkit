@@ -31,12 +31,15 @@ export const getProfile = async (req: Request, res: Response) => {
 };
 
 export const updateProfile = async (req: Request, res: Response) => {
-  const { name, skinType, skinProblems }:profileType = req.body;
+  const { name, skin_type, skin_issues, treatment_goal }: profileType =
+    req.body;
 
-  if (!name && !skinType && !skinProblems) {
-    res
-      .status(400)
-      .send({status:false, statusCode:400, message: "At least one field is required to update the profile" });
+  if (!name && !skin_type && !skin_issues) {
+    res.status(400).send({
+      status: false,
+      statusCode: 400,
+      message: "At least one field is required to update the profile",
+    });
   }
 
   try {
@@ -56,9 +59,10 @@ export const updateProfile = async (req: Request, res: Response) => {
 
     // Data yang akan diperbarui
     const updatedData: any = {};
-    if (name) updatedData.displayName = name;
-    if (skinType) updatedData.skinType = skinType;
-    if (skinProblems) updatedData.skinProblems = skinProblems;
+    if (name) updatedData.name = name;
+    if (skin_type) updatedData.skin_type = skin_type;
+    if (skin_issues) updatedData.skin_issues = skin_issues;
+    if (treatment_goal) updatedData.treatment_goal = treatment_goal;
 
     console.log(updatedData);
 

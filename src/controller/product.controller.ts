@@ -6,12 +6,13 @@ export const productController = async (req: Request, res: Response) => {
     // Mengambil daftar produk dari Firestore
     const productsSnapshot = await db
       .collection("products")
-      .orderBy("name", "asc")
+      // .orderBy("name", "asc")
       .get();
 
     if (productsSnapshot.empty) {
       res.status(404).send({
         status: false,
+        statusCode: 404,
         products: [], // Kembalikan array kosong jika tidak ada produk
       });
     }

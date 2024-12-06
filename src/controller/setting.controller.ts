@@ -31,7 +31,6 @@ export const settingController = async (req:Request, res: Response) => {
       data: {
         dark_mode: settingsData?.dark_mode || false,
         notifications_enabled: settingsData?.notifications_enabled || false,
-        language: settingsData?.language || "en",
       },
     });
   } catch (error: any) {
@@ -65,14 +64,14 @@ export const updateSettingController = async (req: Request, res: Response) => {
         status: false,
         statusCode: 400,
         message:
-          "All fields (dark_mode, notifications_enabled, language) are required",
+          "All fields (dark_mode, notifications_enabled) are required",
       });
     }
 
     // Perbarui pengaturan pengguna di Firestore
     const settingsRef = db.collection("settings").doc(userId);
     await settingsRef.set(
-      { dark_mode, notifications_enabled, language },
+      { dark_mode, notifications_enabled },
       { merge: true } // Menggabungkan dengan data yang sudah ada
     );
 

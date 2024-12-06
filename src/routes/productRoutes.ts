@@ -5,7 +5,7 @@ import { productController, productDetailController } from '../controller/produc
 const router = Router();
 
 // Get Product List
-router.get("/", authenticateToken, productController);
+router.get("/", productController);
 
 router.get("/:product_id", authenticateToken, productDetailController );
 
