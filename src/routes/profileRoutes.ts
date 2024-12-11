@@ -11,7 +11,14 @@ router.get("/", authenticateToken, getProfile
 );
 
 // Update Profile Endpoint
+<<<<<<< HEAD
 router.put("/", authenticateToken, updateProfile);
+=======
+router.put("/", updateProfile);
+
+
+
+>>>>>>> 436bc12c236936ddc5fa695960915ee183b3379c
 
 export default router;
 

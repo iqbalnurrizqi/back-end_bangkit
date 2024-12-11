@@ -83,7 +83,11 @@ export const routineDetailController = async (req: Request, res: Response) => {
     const routineRef = await db.collection("routines").add({
       userId,
       product_id,
+<<<<<<< HEAD
       product_name: productData?.product_name || "Unknown Product",
+=======
+      product_name: productData?.name || "Unknown Product",
+>>>>>>> 436bc12c236936ddc5fa695960915ee183b3379c
       time,
       createdAt: new Date().toISOString(),
     });

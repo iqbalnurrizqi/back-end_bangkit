@@ -31,7 +31,10 @@ router.put("/profile",authenticateToken, updateProfile);
 const upload = multer({
     limits: { fileSize: 5 * 1024 * 1024 }, // Max file size: 5MB
     fileFilter: (req, file, cb) => {
+<<<<<<< HEAD
         console.log("File received:", file); // Debug: Log file info
+=======
+>>>>>>> 436bc12c236936ddc5fa695960915ee183b3379c
         if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
             cb(null, true);
         } else {
@@ -41,9 +44,16 @@ const upload = multer({
 });
 
 // Upload/Update Profile Photo
+<<<<<<< HEAD
 router.post("/profile/photo", authenticateToken, upload.single("photo"), (req, res) => {
     console.log("File received:", req.file);
     res.status(200).send("Photo uploaded successfully!");
 });
+=======
+router.post("/user/profile/photo", authenticateToken, upload.single("photo"));
+
+
+
+>>>>>>> 436bc12c236936ddc5fa695960915ee183b3379c
 
 export default router;

@@ -72,7 +72,10 @@ export const getProfileData = async (req: Request, res: Response) => {
 
     // Get public URL of the uploaded file
     const photoUrl = `https://storage.googleapis.com/${bucket.name}/${filename}`;
+<<<<<<< HEAD
     console.log("Photo URL saved to Firestore:", photoUrl);
+=======
+>>>>>>> 436bc12c236936ddc5fa695960915ee183b3379c
 
     // Update user's photo URL in Firestore
     await db.collection("users").doc(userId).update({
